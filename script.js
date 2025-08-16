@@ -5,6 +5,18 @@ const todoList = document.getElementById('todo-list');
 function addTodo(todoText) {
     const li = document.createElement('li');
     li.textContent = todoText;
+
+    const completebtn = document.createElement('button');
+    completebtn.textContent = '✔️';
+    completebtn.classList.add('complete-btn');
+
+    const deletebtn = document.createElement('button');
+    deletebtn.textContent = '❌';
+    deletebtn.classList.add('delete-btn');
+
+    li.appendChild(completebtn);
+    li.appendChild(deletebtn);
+
     todoList.appendChild(li);
 }
 
