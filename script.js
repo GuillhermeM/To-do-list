@@ -30,3 +30,18 @@ form.addEventListener('submit', (e) => {
         input.value = '';
     }
 });
+
+
+todoList.addEventListener('click', (e) => {
+    const clickedElement = e.target;
+
+    if (clickedElement.classList.contains('complete-btn')) {
+        const todoitem = clickedElement.parentElement;
+        todoitem.classList.toggle('completed');
+    }
+
+    if (clickedElement.classList.contains('delete-btn')) {
+        const todoitem = clickedElement.parentElement;
+        todoitem.remove();
+    }
+});
