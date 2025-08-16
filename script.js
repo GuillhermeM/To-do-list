@@ -45,3 +45,31 @@ todoList.addEventListener('click', (e) => {
         todoitem.remove();
     }
 });
+
+function saveTodos() {
+    const todos = JSON.parse(localStorage.getItem('todos'));
+    if (todos) {
+        todos.forEach(todo => {
+            const li = document.createElement('li');
+            li.textContent = todo.text;
+
+            if (todo.completed) {
+                li.classList.add('completed');
+        }
+
+        const completebtn = document.createElement('button');
+        completebtn.textContent = '✔️';
+        completebtn.classList.add('complete-btn');
+
+        const deletebtn = document.createElement('button');
+        deletebtn.textContent = '❌';
+        deletebtn.classList.add('delete-btn');
+
+        li.appendChild(completebtn);
+        li.appendChild(deletebtn);
+        todoList.appendChild(li);
+    });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', saveTodos);
